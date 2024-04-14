@@ -1,10 +1,10 @@
 # Navlights-on-armed
-LUA-script for Ardupilot to turn on/off navlights on a selected servo channel based on arming state
+Lua-script for Ardupilot to turn on/off navlights on a selected servo channel based on arming state
 
 This script is developped for the SSRS EOS Drone.
 The Navlights used are Flytron STROBON v2 Navigation Light: https://store.flytron.com/collections/led-light-systems/products/strobon-v2-navigation-light
 
-Ardupilot docs for LUA-scripting: https://ardupilot.org/plane/docs/common-lua-scripts.html
+Ardupilot docs for Lua-scripting: https://ardupilot.org/plane/docs/common-lua-scripts.html
 Excerpt:
 
   "Set SCR_ENABLE to 1 to enable scripting (refresh or reboot to see all SCR_ parameters).
