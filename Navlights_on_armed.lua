@@ -8,12 +8,13 @@ local navlight_pwm_on = 2000
 
 function navlights()
   if arming:is_armed() then
-    SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_on))
+    SRV_Channels:set_output_pwm_chan(7, 2000)
     gcs:send_text(6, "Nav Lights on")
   else
-    SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
+    SRV_Channels:set_output_pwm_chan(7, 1000)
     gcs:send_text(6, "Nav Lights off")
   end
+  return navlights, 1000
 end
 
-return navlights(), 1000
+return navlights, 1000
