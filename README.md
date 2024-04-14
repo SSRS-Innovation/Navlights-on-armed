@@ -1,5 +1,5 @@
 # Navlights-on-armed
-LUA-script for Ardupilot to turn on/off navlights on servo Chanel 8 based on arming state
+LUA-script for Ardupilot to turn on/off navlights on a selected servo channel based on arming state
 
 Work in progress and learning project
 
