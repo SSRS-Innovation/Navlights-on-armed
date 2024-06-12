@@ -1,7 +1,7 @@
 --[[
  LUA-script for Ardupilot to turn on/off e.g. navlights on a servo channel based on arming state
  On a PixracerPro servo channel 7 is equal to pin # 8 on the servo rail.
- Successfully tested on a PixracerPro running ArduPlan 4.5.1
+ Successfully tested on a PixracerPro running ArduPlane 4.5.1
 --]]
 
 local navlight_servo_channel = 7
