@@ -1,19 +1,27 @@
 -- LUA-script for Ardupilot to turn on or off e.g. nav lights on a servo channel based on arming state
--- On a PixracerPro servo channel 7 is pin # 8 on the servo rail.
--- Successfully tested on a PixracerPro running ArduPlane 4.5.1
+-- Channel 7 is pin # 8 on the servo rail.
+
 
 local navlight_servo_channel = 7
 local navlight_pwm_off = 900
 local navlight_pwm_on = 2000
+local previous_arming_state = 0
 
 function navlights()
   if arming:is_armed() then
-    SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_on))
-    -- gcs:send_text(6, "Nav Lights on")
+      if (previous_arming_state == 0) then
+        SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_on))
+        gcs:send_text(6, "Turning Nav Lights on")
+        previous_arming_state = 1
+      end
   else
-    SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
-    -- gcs:send_text(6, "Nav Lights off")
+      if (previous_arming_state == 1) then
+        endSRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
+        gcs:send_text(6, "Turning Nav Lights off")
+        previous_arming_state = 0
+      end
   end
   return navlights, 1000  -- run at 1Hz
 end
+
 return navlights()
