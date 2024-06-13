@@ -1,11 +1,13 @@
--- LUA-script for Ardupilot to turn on or off e.g. nav lights on a servo channel based on arming state
--- Channel 7 is pin # 8 on the servo rail.
+-- LUA-script for Ardupilot to turn on or off nav lights on a servo channel based on arming state
 
-
-local navlight_servo_channel = 7
+local navlight_servo_channel = 7 -- Channel 7 is pin # 8 on the servo rail
 local navlight_pwm_off = 900
 local navlight_pwm_on = 2000
 local previous_arming_state = 0
+
+SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
+gcs:send_text(6, "Turning Nav Lights off")
+
 
 function navlights()
   if arming:is_armed() then
