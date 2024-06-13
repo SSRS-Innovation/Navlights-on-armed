@@ -6,7 +6,7 @@ local navlight_pwm_on = 2000
 local previous_arming_state = 0
 
 SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
-gcs:send_text(6, "Turning Nav Lights off")
+gcs:send_text(6, "Turning Nav Lights off after boot")
 
 
 function navlights()
