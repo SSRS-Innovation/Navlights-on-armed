@@ -16,7 +16,7 @@ function navlights()
       end
   else
       if (previous_arming_state == 1) then
-        endSRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
+        SRV_Channels:set_output_pwm_chan((navlight_servo_channel), (navlight_pwm_off))
         gcs:send_text(6, "Turning Nav Lights off")
         previous_arming_state = 0
       end
